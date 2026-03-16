@@ -65,7 +65,7 @@
 
   <div class="fsg-field">
     <label for="fsg-input">URL or text</label>
-    <input type="text" id="fsg-input" placeholder="https://flagstaffgroup.com.au" value="https://flagstaffgroup.com.au" />
+    <input type="text" id="fsg-input" placeholder="https://flagstaff.org.au" value="https://flagstaff.org.au" />
   </div>
 
   <div class="fsg-row">
@@ -561,28 +561,6 @@
 
   var logoImg = null;
 
-  document.getElementById('fsg-logo').addEventListener('change', function(e) {
-    var file = e.target.files[0];
-    if (!file) { logoImg = null; fsgGenerate(); return; }
-    var reader = new FileReader();
-    reader.onload = function(ev) {
-      var img = new Image();
-      img.onload = function() { logoImg = img; fsgGenerate(); };
-      img.src = ev.target.result;
-    };
-    reader.readAsDataURL(file);
-  });
-
-  ['fsg-fg', 'fsg-bg', 'fsg-pad'].forEach(function(id) {
-    var el = document.getElementById(id);
-    el.addEventListener('input', fsgGenerate);
-    el.addEventListener('change', fsgGenerate);
-  });
-
-  document.getElementById('fsg-input').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') fsgGenerate();
-  });
-
   window.fsgGenerate = function() {
     var text = document.getElementById('fsg-input').value.trim();
     var fg = document.getElementById('fsg-fg').value;
@@ -656,6 +634,28 @@
     ctx.quadraticCurveTo(x, y, x + r, y);
     ctx.closePath();
   }
+
+  document.getElementById('fsg-logo').addEventListener('change', function(e) {
+    var file = e.target.files[0];
+    if (!file) { logoImg = null; fsgGenerate(); return; }
+    var reader = new FileReader();
+    reader.onload = function(ev) {
+      var img = new Image();
+      img.onload = function() { logoImg = img; fsgGenerate(); };
+      img.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+
+  ['fsg-fg', 'fsg-bg', 'fsg-pad'].forEach(function(id) {
+    var el = document.getElementById(id);
+    el.addEventListener('input', fsgGenerate);
+    el.addEventListener('change', fsgGenerate);
+  });
+
+  document.getElementById('fsg-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') fsgGenerate();
+  });
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() { setTimeout(fsgGenerate, 100); });
