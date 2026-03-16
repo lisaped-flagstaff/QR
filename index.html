@@ -65,7 +65,7 @@
 
   <div class="fsg-field">
     <label for="fsg-input">URL or text</label>
-    <input type="text" id="fsg-input" placeholder="https://flagstaffgroup.com.au" value="https://flagstaffgroup.com.au" />
+    <input type="text" id="fsg-input" placeholder="https://flagstaff.org.au" value="https://flagstaff.org.au" />
   </div>
 
   <div class="fsg-row">
@@ -560,6 +560,13 @@
   /* ============================================================= */
 
   var logoImg = null;
+
+  (function() {
+    var defaultSrc = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMTguNzIgMTE5LjI4Ij4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjkuMy4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMi4xLjAgQnVpbGQgMTUxKSAgLS0+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5zdDAgewogICAgICAgIGZpbGw6ICNlZTMyMjQ7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNzguMTYsNDYuOTZjLjMtLjExLjYxLS4yMS45My0uMjksMS4zNi0uMzcsMi43NC0uNDYsNC4wNi0uMzEsNC40OC4zNyw4LjM4LDMuNTYsOS42Miw4LjIxLDEuNTgsNS44OS0xLjkyLDExLjk1LTcuODEsMTMuNTMtLjQuMTEtLjgxLjE1LTEuMi4yNS01LjEzLDEuMzQtOC4yNyw3LjA5LTYuOTIsMTIuMjQuMDYuMjQuMTYuNDguMjIuNzMuNDEsMS41My40OCwzLjA3LjI1LDQuNTQtLjYsNC4yNy0zLjY3LDcuOTgtOC4wOSw5LjE2LTQuMjEsMS4xMy04LjUtLjMzLTExLjE4LTMuNDEtMS4xNC0xLjI0LTItMi43NS0yLjQ2LTQuNDktMS40Ni01LjQ2LTYuODgtOS40Mi0xMi4yNC04LjA4LS4zMS4wOC0uNjEuMjEtLjkzLjI5LTEuMzYuMzctMi43NC40Ni00LjA2LjMxLTQuNDgtLjM3LTguMzgtMy41Ni05LjYyLTguMjEtMS41OC01Ljg5LDEuOTItMTEuOTUsNy44MS0xMy41My40LS4xMS44MS0uMTUsMS4yLS4yNSw1LjEzLTEuMzQsOC4yNy03LjA5LDYuOTItMTIuMjQtLjA2LS4yNC0uMTYtLjQ4LS4yMi0uNzMtLjQxLTEuNTMtLjQ4LTMuMDctLjI1LTQuNTQuNi00LjI3LDMuNjctNy45OCw4LjA5LTkuMTYsNC4yMS0xLjEzLDguNS4zMywxMS4xOCwzLjQxLDEuMTQsMS4yNCwyLDIuNzUsMi40Nyw0LjQ5LDEuNDYsNS40Niw2Ljc4LDguODcsMTIuMjQsOC4wOGgwWk03MC42NCw2OS40N2MtMy4zMiw1Ljc1LTEwLjY3LDcuNzItMTYuNDIsNC40LTUuNzUtMy4zMi03LjcyLTEwLjY3LTQuNC0xNi40MywzLjMyLTUuNzUsMTAuNjctNy43MiwxNi40Mi00LjQsNS43NSwzLjMyLDcuNzIsMTAuNjcsNC40LDE2LjQyaDBaIi8+Cjwvc3ZnPg==';
+    var img = new Image();
+    img.onload = function() { logoImg = img; };
+    img.src = defaultSrc;
+  })();
 
   window.fsgGenerate = function() {
     var text = document.getElementById('fsg-input').value.trim();
